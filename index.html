@@ -20,11 +20,11 @@
                                                                                                                         
        header {      
         background-image: linear-gradient(to bottom, #050814,#2b124f );
-        padding: 20px;   
-        border: 2px solid black;  
-        gap: 25px; 
-        display: flex;   
-        flex-direction: column;
+        padding: 35px;     
+        gap: 30px; 
+        display: flex;  
+        align-items: center;
+        flex-flow: column;
         color: white;
         }
 
@@ -32,9 +32,14 @@
         display: flex;
         justify-content: center;
         background-image: linear-gradient(to bottom, #050814,#2b124f );
-        border: 2px solid black;
-        padding: 10px;
+        padding: 15px;
         color: white;
+        }
+        
+        p {
+            font-weight: bold;
+            margin: 10px;
+            padding: 10px;
         }
 
         .multimidia {
@@ -44,11 +49,16 @@
             flex-direction: column;
         }
 
-        .lista2, p {
-        margin: 10px;
+        .planetas {
         display: flex;
+        flex-flow: wrap;
         justify-content: center;
-        padding: 10px;
+        gap: 30px;
+        padding: 30px;
+        }
+
+        .planeta {
+            width: 200px;
         }
         
        .titulo {
@@ -65,7 +75,8 @@
        
        .item:hover {
         border: 1px solid #050814;
-        background-image: linear-gradient(to bottom, white,#2b124f );
+        background-image: linear-gradient(to bottom, gray,#2b124f );
+        transform: translate(0, -4px) scale(1.04);
        }
        
        .lista, a {
@@ -119,31 +130,55 @@
     <section>
         <!--explicação breve sobre os planetas-->
         <h3 class="titulo">Planetas do Sistema Solar</h3>
-        <ul class="lista2">
-            <li>
-               <h3>Terra</h3> 
+        <ul class="planetas">
+            <li class="planeta">
+               <h3>Mercúrio</h3>
                 <p>
-                    A Terra é o único planeta conhecido que abriga vida. Ela tem água líquida, uma atmosfera equilibrada e uma temperatura ideal para manter ecossistemas diversos. A presença de oxigênio, o campo magnético e a proteção da camada de ozônio são fatores essenciais que tornam nosso planeta tão especial.
+                    Mercúrio é o menor planeta e o mais próximo do Sol. Ele não tem atmosfera sólida, o que faz a temperatura variar muito entre o dia e a noite. Durante o dia, a superfície pode ficar extremamente quente, enquanto à noite chega a temperaturas muito baixas. É um planeta cinza e cheio de crateras, lembrando a Lua.
                 </p>
             </li><br>
-            <li>
-                <h3>Marte</h3>
-                <p>
-                    Marte é chamado de planeta vermelho por causa do óxido de ferro presente em sua superfície. Ele tem montanhas gigantes, vales profundos e tempestades de poeira que podem durar semanas. Mesmo sendo frio e seco hoje, existem sinais de que no passado já houve água líquida por lá, o que torna o planeta um dos principais alvos de exploração.                 
-                </p>
-            </li><br>
-            <li>
+            <li class="planeta">
                 <h3>Vênus</h3>
                 <p>
                     Vênus é coberto por uma atmosfera muito densa feita de dióxido de carbono. Essa camada prende tanto calor que o planeta se torna mais quente que Mercúrio, mesmo estando mais longe do Sol. As nuvens são formadas por ácido sulfúrico, o que impede que a luz chegue até a superfície. Por isso, quase tudo que sabemos veio de sondas que enviaram dados antes de derreter no calor extremo.
                 </p>
             </li><br>
-            <li>
-                <h3>Mercúrio</h3>
+            <li class="planeta">
+                <h3>Terra</h3> 
                 <p>
-                    Mercúrio é o menor planeta e o mais próximo do Sol. Ele não tem atmosfera sólida, o que faz a temperatura variar muito entre o dia e a noite. Durante o dia, a superfície pode ficar extremamente quente, enquanto à noite chega a temperaturas muito baixas. É um planeta cinza e cheio de crateras, lembrando a Lua.
+                    A Terra é o único planeta conhecido que abriga vida. Ela tem água líquida, uma atmosfera equilibrada e uma temperatura ideal para manter ecossistemas diversos. A presença de oxigênio, o campo magnético e a proteção da camada de ozônio são fatores essenciais que tornam nosso planeta tão especial.
                 </p>
             </li><br>
+            <li class="planeta">
+                <h3>Marte</h3>
+                <p>
+                    Marte é chamado de planeta vermelho por causa do óxido de ferro presente em sua superfície. Ele tem montanhas gigantes, vales profundos e tempestades de poeira que podem durar semanas. Mesmo sendo frio e seco hoje, existem sinais de que no passado já houve água líquida por lá, o que torna o planeta um dos principais alvos de exploração.                 
+                </p>
+            </li><br>
+            <li class="planeta">
+                <h3>Júpiter</h3>
+                <p>
+                    Júpiter é o quinto planeta e o maior do Sistema Solar. Ele é um gigante gasoso formado principalmente por hidrogênio e hélio. Sua atmosfera apresenta tempestades gigantes, como a Grande Mancha Vermelha, além de possuir dezenas de luas.
+                </p>
+            </li>
+            <li class="planeta">
+                <h3>Saturno</h3>
+                <p>
+                    Saturno é o sexto planeta do Sistema Solar. Ele se destaca por seus anéis compostos de gelo e rocha. Assim como Júpiter, é um gigante gasoso e possui um grande número de luas.
+                </p>
+            </li>
+            <li class="planeta">
+                <h3>Urano</h3>
+                <p>
+                    Urano é o sétimo planeta a partir do Sol. Ele gira praticamente de lado em relação aos outros planetas. É classificado como um gigante gelado e tem coloração azulada por causa do metano em sua atmosfera.
+                </p>
+            </li>
+            <li class="planeta">
+                <h3>Netuno</h3>
+                <p>
+                    Netuno é o oitavo e mais distante planeta do Sistema Solar. Ele é conhecido por seus ventos extremamente fortes e sua coloração azul intensa. Recebe muito pouca luz solar devido à grande distância do Sol.
+                </p>
+            </li>
         </ul>
     </section>
 
