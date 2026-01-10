@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System</title>
+    <title>Sistema Solar</title>
     <style>
+
+/* === BASE === */
+
         * {
         padding: 0px;
         margin: 0px;
         list-style: none;
         text-decoration: none;
         font-family: 'Courier New', Courier, monospace;
+        scroll-behavior: smooth;
         }
 
+/* === PALHETA DE CORES === */
+
+        :root{
+            --cor-primaria: #050814;
+            --cor-secundaria: #2b124f;
+            --cor-texto: whitesmoke;
+            --cor-estrela: white;
+        }
+
+/* === CORPO DO SITE === */
 
         body {
-            background-color: whitesmoke;
+            background-color: var(--cor-texto);
         }
                                                                                                                         
        header {      
-        background-image: linear-gradient(to bottom, #050814,#2b124f );
+        background-image: linear-gradient(to bottom, var(--cor-primaria), var(--cor-secundaria) );
         padding: 35px;     
         gap: 30px; 
         display: flex;  
@@ -31,17 +45,83 @@
         footer {
         display: flex;
         justify-content: center;
-        background-image: linear-gradient(to bottom, #050814,#2b124f );
+        background-image: linear-gradient(to bottom, var(--cor-primaria),var(--cor-secundaria) );
         padding: 15px;
         color: white;
         }
-        
-        p {
+
+        button {
+            position: absolute;
+            right: 5px;
+            bottom: 48px;
+        }
+
+        video {
+            height: 50%;
+            width: 50%;
+        }
+
+/* === CLASSES === */
+
+        .home > *:not(.space) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .home {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .espaco {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .espaco::before {
+            animation: piscar 2s linear infinite;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 2px;
+            background: var(--cor-estrela);
+            border-radius: 50%;
+
+            box-shadow: 
+            -40vw -30vh var(--cor-estrela),
+            10vw -20vh var(--cor-estrela),
+            30vw -10vh var(--cor-estrela),
+            -25vw 15vh var(--cor-estrela),
+            20vw 25vh var(--cor-estrela),
+            -10vw 30vh var(--cor-estrela),
+            40vw 10vh var(--cor-estrela),
+            -35vw -5vh var(--cor-estrela),
+            15vw 5vh var(--cor-estrela),
+            -5vw -25vh var(--cor-estrela);                
+        } 
+
+        .paragrafo {
             font-weight: bold;
             margin: 10px;
             padding: 10px;
         }
+        .p {
+            font-size: smaller;
+            padding-bottom: 30px;
+        }
 
+        .rodape {
+            position: relative;
+        }
+
+        .conteiner {
+            padding-top: 15px;
+        }
+            
         .multimidia {
             display: flex;
             justify-content: center;
@@ -49,15 +129,15 @@
             flex-direction: column;
         }
 
-        .planetas {
+        .lista1 {
         display: flex;
         flex-flow: wrap;
         justify-content: center;
-        gap: 30px;
+        gap: 10px;
         padding: 30px;
         }
 
-        .planeta {
+        .itens-da-lista {
             width: 200px;
         }
         
@@ -69,51 +149,66 @@
        } 
         
        .item {
-        border: 1px solid #050814;
-        background-image: linear-gradient(to bottom, #050814,#2b124f ); 
+        border: 0.5px solid var(--cor-primaria);
+        background-image: linear-gradient(to bottom, var(--cor-primaria), var(--cor-secundaria) ); 
+        border-radius: 10px;
+        transition: transform 0.2s ease;
        }
        
        .item:hover {
-        border: 1px solid #050814;
-        background-image: linear-gradient(to bottom, gray,#2b124f );
+        border: 1px solid var(--cor-primaria);
+        background-image: linear-gradient(to bottom, gray, var(--cor-secundaria) );
         transform: translate(0, -4px) scale(1.04);
        }
        
        .lista, a {
         display: flex;
-        gap: 20px;
+        gap: 10px;
         margin: 10px;
         color: white;
-        justify-content: center;      
+        justify-content: center;   
+        flex-flow: wrap;   
         }
 
-        .hr {
-            visibility: hidden;
+/* === KEYFRAMES === */
+
+        @keyframes piscar {
+            0% {opacity: 0.3;}
+            50% {opacity: 1;}
+            100% {opacity: 0.3;}
         }
 
     </style>
 </head>
 <body>
-   <header>
+   <header id="home" class="home"> 
+    <div class="espaco"></div>
     <h1>Sistema Solar</h1>
     <h2>Explorando os planetas e suas características</h2>
+    <p>
+        <i>
+            "O Sistema Solar é o lar de planetas, luas e mundos distantes que giram em torno do Sol. Cada um deles guarda sua própria história, feita de luz, gelo, rocha e tempo, formando juntos o cenário onde a nossa existência começou".          
+        </i>
+    </p>
+
    </header> 
    <nav>
     <ul class="lista">
         <li class="item"><a href="#sistema-solar-navegacao">Sistema Solar</a></li>
         <li class="item"><a href="#planetas-do-sistema-solar-navegacao">Planetas do Sistema Solar</a></li>
         <li class="item"><a href="#satelites-naturais-navegacao">Satélites Naturais</a></li>
-        <li class="item"><a href="#multimidia-navegacao">Mídia</a></li>
+        <li class="item"><a href="#midia-navegacao">Mídia</a></li>
     </ul>
    </nav>
 
 <hr>
-<br>
-<hr id="sistema-solar-navegacao" class="hr">
+
    <main>
+   
+<div id="sistema-solar-navegacao" class="conteiner">
     <article>
-        <h2 class="titulo">Sistema Solar</h2>
-        <p>
+        <h2 class="titulo">A origem do nosso canto no universo</h2>
+        <p class="paragrafo">
             O Sistema Solar se formou há cerca de 4,6 bilhões de anos a partir de uma grande nuvem de gás e poeira. A maior parte desse material se juntou no centro e deu origem ao Sol. O restante formou os planetas, luas, asteroides e cometas. Cada planeta tem sua própria história e características, mas todos orbitam 
             o Sol graças à força da gravidade.
 
@@ -122,89 +217,137 @@
             Mesmo com tantas diferenças, todos os planetas seguem trajetórias bem definidas. Isso cria uma organização natural que permite que o Sistema Solar funcione como um conjunto equilibrado. Estudar esses corpos celestes ajuda a entender não só a história da Terra, mas também como outros sistemas planetários podem existir no universo.
         </p>
     </article>
-    
-    <br>
-    <br>
-    <hr id="planetas-do-sistema-solar-navegacao" class="hr">
+</div>
 
+<div id="planetas-do-sistema-solar-navegacao" class="conteiner">
     <section>
         <!--explicação breve sobre os planetas-->
         <h3 class="titulo">Planetas do Sistema Solar</h3>
-        <ul class="planetas">
-            <li class="planeta">
+        <ul class="lista1">
+            <li class="itens-da-lista">
                <h3>Mercúrio</h3>
-                <p>
+                <p class="paragrafo">
                     Mercúrio é o menor planeta e o mais próximo do Sol. Ele não tem atmosfera sólida, o que faz a temperatura variar muito entre o dia e a noite. Durante o dia, a superfície pode ficar extremamente quente, enquanto à noite chega a temperaturas muito baixas. É um planeta cinza e cheio de crateras, lembrando a Lua.
                 </p>
             </li><br>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Vênus</h3>
-                <p>
+                <p class="paragrafo">
                     Vênus é coberto por uma atmosfera muito densa feita de dióxido de carbono. Essa camada prende tanto calor que o planeta se torna mais quente que Mercúrio, mesmo estando mais longe do Sol. As nuvens são formadas por ácido sulfúrico, o que impede que a luz chegue até a superfície. Por isso, quase tudo que sabemos veio de sondas que enviaram dados antes de derreter no calor extremo.
                 </p>
             </li><br>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Terra</h3> 
-                <p>
+                <p class="paragrafo">
                     A Terra é o único planeta conhecido que abriga vida. Ela tem água líquida, uma atmosfera equilibrada e uma temperatura ideal para manter ecossistemas diversos. A presença de oxigênio, o campo magnético e a proteção da camada de ozônio são fatores essenciais que tornam nosso planeta tão especial.
                 </p>
             </li><br>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Marte</h3>
-                <p>
+                <p class="paragrafo">
                     Marte é chamado de planeta vermelho por causa do óxido de ferro presente em sua superfície. Ele tem montanhas gigantes, vales profundos e tempestades de poeira que podem durar semanas. Mesmo sendo frio e seco hoje, existem sinais de que no passado já houve água líquida por lá, o que torna o planeta um dos principais alvos de exploração.                 
                 </p>
             </li><br>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Júpiter</h3>
-                <p>
+                <p class="paragrafo">
                     Júpiter é o quinto planeta e o maior do Sistema Solar. Ele é um gigante gasoso formado principalmente por hidrogênio e hélio. Sua atmosfera apresenta tempestades gigantes, como a Grande Mancha Vermelha, além de possuir dezenas de luas.
                 </p>
             </li>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Saturno</h3>
-                <p>
+                <p class="paragrafo">
                     Saturno é o sexto planeta do Sistema Solar. Ele se destaca por seus anéis compostos de gelo e rocha. Assim como Júpiter, é um gigante gasoso e possui um grande número de luas.
                 </p>
             </li>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Urano</h3>
-                <p>
+                <p class="paragrafo">
                     Urano é o sétimo planeta a partir do Sol. Ele gira praticamente de lado em relação aos outros planetas. É classificado como um gigante gelado e tem coloração azulada por causa do metano em sua atmosfera.
                 </p>
             </li>
-            <li class="planeta">
+            <li class="itens-da-lista">
                 <h3>Netuno</h3>
-                <p>
+                <p class="paragrafo">
                     Netuno é o oitavo e mais distante planeta do Sistema Solar. Ele é conhecido por seus ventos extremamente fortes e sua coloração azul intensa. Recebe muito pouca luz solar devido à grande distância do Sol.
                 </p>
             </li>
         </ul>
     </section>
+</div>
 
-<br>
-<br>
-<hr id="satelites-naturais-navegacao" class="hr">
-
-    <section >
+<div id="satelites-naturais-navegacao" class="conteiner">
+    <section>
         <h3 class="titulo">Satélites Naturais</h3>
-        <ul>
-            <li></li>
-
+        <ul class="lista1">
+            <li class="itens-da-lista">
+                <h3>Mercúrio</h3>
+                <p class="paragrafo">
+                    Mercúrio não possui satélites naturais. Por estar muito próximo do Sol e ter pouca gravidade, ele não consegue manter luas orbitando ao seu redor.
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Vênus</h3>
+                <p class="paragrafo">
+                    Vênus também não tem satélites naturais. Assim como Mercúrio, sua posição e características gravitacionais fazem com que ele não possua luas.
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Terra</h3>
+                <p class="paragrafo">
+                    A Terra possui um único satélite natural, a Lua, que é fundamental para as marés, ajuda a estabilizar o eixo do planeta e influencia diretamente o clima e os ciclos naturais da vida.
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Marte</h3>
+                <p class="paragrafo">
+                    Marte tem duas pequenas luas, Fobos e Deimos. Elas são irregulares e provavelmente se formaram a partir de material capturado, ajudando os cientistas a entender melhor a história e a evolução do planeta vermelho.
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Júpiter</h3>
+                <p class="paragrafo">
+                    Júpiter abriga algumas das luas mais impressionantes do Sistema Solar, como Io, com sua intensa atividade vulcânica, Europa, que pode esconder um oceano sob sua superfície de gelo, Ganimedes, a maior lua do Sistema Sola, e Calisto, que preserva registros antigos por meio de suas crateras. 
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Saturno</h3>
+                <p class="paragrafo">
+                    Saturno tem luas marcantes como Titã, que possui uma atmosfera densa e rica em compostos orgânicos, e Encélado, que libera jatos de água no espaço e sugere a presença de um oceano subterrâneo, além de várias outras que podem ajudar a compor seu sistema complexo.
+                </p class="paragrafo">
+            </li>
+            <li class="itens-da-lista">
+                <h3>Urano</h3>
+                <p class="paragrafo">
+                    Urano possui luas como Titânia, Oberon, Umbriel, Ariel e Miranda, que ajudam os cientistas a entender melhor a formação, a composição e a dinâmica desse planeta inclinado.
+                </p>
+            </li>
+            <li class="itens-da-lista">
+                <h3>Netuno</h3>
+                <p class="paragrafo">
+                    Netuno tem Tritão como sua principal lua, que orbita em sentido contrário ao da rotação do planeta, indicando que provavelmente foi capturada, além de outras menores como Nereida e Proteu, que completam seu sistema de satélites.
+                </p>
+            </li>
         </ul>
     </section>
+</div>
 
-<br>
-<br>
-<hr id="multimidia-navegacao" class="hr">
-
+<div id="midia-navegacao" class="conteiner">
     <section class="multimidia">
-        <video src="" controls>Não foi possível reproduzir o vídeo</video> 
+        <video src="midia/Sistema-Solar-VoceSabia.mp4" controls>Não foi possível reproduzir o vídeo</video> 
+        <p>patrocionado pelo VocêSabia?</p>
         <br>
-        <audio src="" controls>Não foi possível reproduzir o áudio</audio>
+        <audio src="midia/Nasa-spaceSound.mp3" controls>Não foi possível reproduzir o áudio</audio>
+        <p>Som do Espaço</p><p class="p">áudio patrocionado pela NASA</p>
     </section>
-    <br>
-    <footer>&copy; Todos os direitos reservados 2025</footer>
+</div>
+
+<div class="rodape">
+    <footer>
+        &copy; Todos os direitos reservados 2025
+        <button class="item"><a href="#home">Voltar para o início</a></button>
+    </footer>
+</div>
    </main>
 </body>
 </html>
