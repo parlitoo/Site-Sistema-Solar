@@ -2,6 +2,7 @@
 Este é um simples projeto com o intuito de praticar HTML e CSS (inline). Ele apresenta informações básicas sobre os planetas do Sistema Solar, com descrições e uma seção de multimídia.
 
 **Desenvolvedor:** Paulo
+
 **Tecnologias:**
  - HTML
  - CSS3
